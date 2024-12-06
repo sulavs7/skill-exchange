@@ -1,0 +1,168 @@
+<!-- views/signup.ejs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form action="/signup" method="POST">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</body>
+</html> -->
+
+<!-- views/signup.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Basic styling for the page */
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f4f8; /* Light gray background */
+    }
+
+    /* Modal container */
+    .modal {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Modal background */
+    .modal-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+    }
+
+    /* Close button */
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: transparent;
+      border: none;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Styling the form */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #555;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus {
+      border-color: #007bff; /* Blue border on focus */
+    }
+
+    button[type="submit"] {
+      background-color: #007bff; /* Blue button */
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Modal background -->
+  <div class="modal-background" id="modalBackground" onclick="redirectToLoginPage()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closeModal()">×</button>
+      
+      <h1>Sign Up as Tourist</h1>
+      <form action="/signup" method="POST">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <!-- Add a hidden field or a selection for the role -->
+        <input type="hidden" name="role" value="tourist"> <!-- or set to "local" based on context -->
+        <button type="submit">Sign Up</button>
+      </form>
+      
+    </div>
+  </div>
+
+  <script>
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById('modalBackground').style.display = 'none';
+    }
+
+    // Redirect to the login page when clicking outside of the modal
+    function redirectToLoginPage() {
+      window.location.href = '/login'; // Change this to your login route
+    }
+
+    // Prevent modal from closing when clicking inside the modal
+    document.querySelector('.modal').addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+/* General Reset */
+
+header {
+  background-color: #b2cbe7;
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(226, 249, 249);
+}
+
+header {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.register {
+  background-color: #28a745; /* Green color */
+  margin-left: 10px;
+}
+
+.register:hover {
+  background-color: #218838;
+}
+
+header h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Main Section */
+main {
+  text-align: center;
+}
+
+main h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #555;
+}
+
+/* Buttons */
+.buttons {
+  margin-bottom: 30px;
+}
+
+.button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Hidden Checkboxes */
+.toggle {
+  display: none;
+}
+
+/* Login Windows */
+.login-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  display: none; /* Initially hidden */
+  z-index: 10;
+}
+
+.login-window h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.login-window form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-window input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.login-window button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-window button:hover {
+  background-color: #0056b3;
+}
+
+.login-window a {
+  text-align: center;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login-window a:hover {
+  text-decoration: underline;
+}
+
+/* Go Back Button */
+.back-button {
+  display: inline-block;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.back-button:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Show Local Login */
+#local-checkbox:checked ~ #local-login {
+  display: block;
+}
+
+/* Show Tourist Login */
+#tourist-checkbox:checked ~ #tourist-login {
+  display: block;
+}
+
+/* Ensure only one window is visible at a time */
+#local-checkbox:checked ~ #tourist-login {
+  display: none;
+}
+
+#tourist-checkbox:checked ~ #local-login {
+  display: none;
+}
