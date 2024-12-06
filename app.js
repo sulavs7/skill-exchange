@@ -12,6 +12,8 @@ const PORT = 3000;
 connectDB();
 
 // Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -26,6 +28,7 @@ app.use('/', authRoutes);
 
 //routing on pages from the navbar 
 app.use('/', pageRoutes);
+
 
 
 // Start the server

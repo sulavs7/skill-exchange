@@ -1,9 +1,6 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 
-// const signupPage = (req, res) => {
-//   res.render('signup-tourist.ejs'); // Renders the signup page
-// };
 const signupPage = (req, res) => {
   // This is for displaying the signup page (it can be handled with separate routes for tourist and local)
   if (req.path === '/signup') {
@@ -16,7 +13,7 @@ const signupPage = (req, res) => {
 };
 
 const handleSignup = async (req, res) => {
-  const { email, password,role} = req.body;
+  const { email, password, role } = req.body;
 
   if (!email || !password) {
     return res.status(400).send('All fields are required.');
@@ -41,15 +38,18 @@ const handleSignup = async (req, res) => {
 
     //redirect based on role 
     if (role === 'tourist') {
-      res.render('tourist-pov.ejs');
+      // res.render('tourist-pov.ejs');
+      res.redirect('/login');
+
     } else if (role === 'local') {
-      res.redirect('/');
+      // res.render('local-pov.ejs');
+      res.redirect('/local-pov');
     } else {
       res.status(400).send('Invalid role.');
     }
-    
 
-  }catch (error) {
+
+  } catch (error) {
     console.error('Error during signup:', error);
     res.status(500).send('An error occurred during signup.');
   }
@@ -58,9 +58,8 @@ const handleSignup = async (req, res) => {
 const loginPage = (req, res) => {
   res.render('login.ejs'); // Renders the login page
 };
-
 const handleLogin = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, role } = req.body;
 
   if (!email || !password) {
     return res.status(400).send('All fields are required.');
@@ -77,10 +76,21 @@ const handleLogin = async (req, res) => {
       return res.status(400).send('Invalid email or password.');
     }
 
-    // res.send('Login successful!');
-    res.redirect('/'); // Redirect to the homepage
+    const { role } = user; // Extract the role
+    console.log(`User logged in with role: ${role}`); // Debug log
+
+    if (role === 'tourist') {
+      // res.render('tourist-pov.ejs');
+      res.redirect('/tourist-pov');
+
+    } else if (role === 'local') {
+      // res.render('local-pov.ejs');
+      res.redirect('/local-pov');
+    } else {
+      res.status(400).send('Invalid role.');
+    }
   } catch (error) {
-    console.error('Error during login:', error);
+    console.error('Error during login:', error); // Detailed error logging
     res.status(500).send('An error occurred during login.');
   }
 };

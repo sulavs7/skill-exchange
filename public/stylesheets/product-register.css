@@ -1,0 +1,113 @@
+/* General Reset */
+body {
+  background-color: #b7d1e5;
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #8197d8;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Main Section */
+main {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #208399;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.terms-container {
+  display: inline-flex;
+  /* align-items: center; */
+  margin: 0; /* Removes any gap around the container */
+  padding: 0;
+}
+
+.terms-container input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0; /* Removes unnecessary gap around the checkbox */
+  margin-right: 5px; /* Adds minimal space between the checkbox and text */
+}
+
+.terms-container .terms-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #8197d8;
+  color: #fff;
+  padding: 10px 0;
+}
+
+footer .social-links a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+  color: #ffd700; /* Gold hover effect */
+}

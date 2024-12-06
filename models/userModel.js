@@ -1,28 +1,37 @@
-// //tourist database initialize 
-
-// const mongoose = require('mongoose');
-
-// const userSchema = new mongoose.Schema({
-//   email: { type: String, required: true, unique: true },
-//   password: { type: String, required: true },
-// });
-
-// const User = mongoose.model('User', userSchema);
-
-// module.exports = User;
 
 
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+
   role: {
     type: String,
-    enum: ['local', 'tourist'], // Enum to restrict roles to 'local' or 'tourist'
-    required: true // Ensure that a role is provided when creating a user
-  }
+    enum: ['tourist', 'local'], // Defines the type of user
+    required: true,
+  },
+  category: {
+    type: String,
+    // category is only required if the user is a local
+    validate: {
+      validator: function (value) {
+        // Only validate if the role is 'local'
+        return this.role === 'local' ? value != null : true;
+      },
+      message: 'Category is required for locals',
+    },
+  },
+  // Add any other fields as needed
 });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);
+
