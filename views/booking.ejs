@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+    <link rel="stylesheet" href="stylesheets/booking.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Experience Khwopa</div>
+        <nav>
+           <ul>
+                 <li><a href="/" class="text-link">Home</a></li>
+                <li><a href="#about" class="text-link">About Us</a></li>
+                <li><a href="#contact" class="text-link">Contact Us</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <main>
+        <div style="height: 50px;"></div>
+        <h1>Book Your Experience</h1>
+        <form action="verification.html" method="POST" class="booking-form">
+            <!-- Selection of Date -->
+            <div class="form-group">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <!-- Tourist Details -->
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Submit Button -->
+            <!-- <button type="submit" class="submit-btn">Proceed to Payment</button> -->
+            <a href="/payment">Proceed to payment</a> 
+        </form>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="about-section" id="about">
+                    <h3>About Us</h3>
+                    <p>Experience Khwopa is your gateway to exploring the rich cultural heritage of Bhaktapur. We are dedicated to showcasing the authentic experiences, traditional crafts, and historical landmarks of this ancient city. Our mission is to connect visitors with local artisans, cultural sites, and unique experiences that make Khwopa (Bhaktapur) truly special.</p>
+                </div>
+                <div class="contact-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@experiencekhwopa.com</p>
+                    <p>Phone: +977 1234567890</p>
+                    <p>Address: Durbar Square, Bhaktapur</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com" target="_blank">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2024 Experience Khwopa</div>
+        </div>
+    </footer>
+   
+    
+</body>
+</html>

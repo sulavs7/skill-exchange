@@ -10,28 +10,24 @@
     <header>
         <div class="logo">Experience Khwopa</div>
         <nav>
-            <input type="text" placeholder="Search ...">
-            <div class="icons">
-                <span class="icon">👤</span>
-                <span class="icon">⚙️</span>
-            </div>
+            <ul>
+                <li><a href="/" class="text-link">Home</a></li>
+                <li><a href="#about" class="text-link">About Us</a></li>
+                <li><a href="#contact" class="text-link">Contact Us</a></li>
+            </ul>
         </nav>
     </header>
     <main>
-        <div style="height: 70px;"></div>
+        <div style="height:25px;"></div>
         <h1>Explore of Variety of Skills</h1>
         <div class="categories">
             <div class="category-card">
                 <img src="https://i0.wp.com/www.thirdrockadventures.com/assets-back/images/trip/pottery-3.jpgPsZ.jpg?w=834&ssl=1" alt="Pottery" width="150" height="150">
                 <h2>Pottery</h2>
                 <p>Explore the art of pottery with local artisans. Discover unique techniques and styles.</p>
-                <button onclick="exploreMore()">View More</button>
-            </div>
-            <div class="category-card">
-                <img src="https://live.staticflickr.com/65535/14924876518_261e80e472_h.jpg" alt="Thanka" width="150" height="200">
-                <h2>Thanka</h2>
-                <p>Unleash your creativity with our painting workshops led by local artists.</p>
-                <button onclick="exploreMore() ">View More</button>
+                <!-- <button onclick="exploreMore()">View More</button> -->
+                <button onclick="exploreMore('Pottery')">View More</button>
+
             </div>
             <div class="category-card">
                 <img src="https://live.staticflickr.com/65535/14924876518_261e80e472_h.jpg" alt="Thanka" width="150" height="200">
@@ -55,14 +51,34 @@
      
     </main>
     <footer>
-        <h2>Get In Touch</h2>
-        <p>Let's connect & help local businesses thrive!</p>
-        <button>Contact Us</button>
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="about-section" id="about">
+                    <h3>About Us</h3>
+                    <p>Experience Khwopa is your gateway to exploring the rich cultural heritage of Bhaktapur. We are dedicated to showcasing the authentic experiences, traditional crafts, and historical landmarks of this ancient city. Our mission is to connect visitors with local artisans, cultural sites, and unique experiences that make Khwopa (Bhaktapur) truly special.</p>
+                </div>
+                <div class="contact-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@experiencekhwopa.com</p>
+                    <p>Phone: +977 1234567890</p>
+                    <p>Address: Durbar Square, Bhaktapur</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com" target="_blank">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2024 Experience Khwopa</div>
+        </div>
     </footer>
     <script>
-        function exploreMore() {
-            window.location.href = '/tourist-product-select';
-        }
+        function exploreMore(category) {
+        window.location.href = `/tourist-product-select?category=${encodeURIComponent(category)}`;
+    }
     </script>
 </body>
 </html>

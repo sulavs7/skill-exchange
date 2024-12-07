@@ -1,66 +1,91 @@
-//login page 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Pop-up</title>
+  <meta name="description" content="Experience Khwopa - Login to explore Bhaktapur's cultural heritage">
+  <title>Experience Khwopa - Login</title>
   <link rel="stylesheet" href="stylesheets/login.css">
 </head>
 <body>
   <header>
-    
-    <div class="logo"><img src="https://media.istockphoto.com/id/469532554/photo/bahakapur-nepal.jpg?s=612x612&w=0&k=20&c=9RHmLtdaPTJdtzpz86DQDW98X-WrT5FaUdas6mXKEHM=" width="50">Experience Khwopa</div>
-  </header>
+    <div class="logo">Experience Khwopa</div>
+    <nav>
+        <ul>
+            <li><a href="/" class="text-link">Home</a></li>
+            <li><a href="#about" class="text-link">About Us</a></li>
+            <li><a href="#contact" class="text-link">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
 
   <main>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Kathmandu_und_Bhaktapur_2013-05-11_16-03-39.jpg" height="500">
-    <h2>Welcome back!</h2>
-
-    
-    <div class="buttons">
-      <label for="local-checkbox" class="button">Login as Local</label>
-      <label for="tourist-checkbox" class="button">Login as Tourist</label>
-     
+    <div class="hero-container">
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/3/38/Kathmandu_und_Bhaktapur_2013-05-11_16-03-39.jpg" 
+        alt="Scenic view of Bhaktapur" 
+        class="hero-image"
+      >
+      <div class="welcome-content">
+        <h2>Welcome to Khwopa!</h2>
+        <div class="buttons">
+          <label for="local-checkbox" class="button">Login as Local</label>
+          <label for="tourist-checkbox" class="button">Login as Tourist</label>
+        </div>
+      </div>
     </div>
 
-   
     <input type="checkbox" id="local-checkbox" class="toggle">
     <input type="checkbox" id="tourist-checkbox" class="toggle">
-
 
     <div class="login-window" id="local-login">
       <h3>Login as Local</h3>
       <form action="/login-local" method="post">
-        <input type="text" placeholder="Username or email" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-        <a href="/signup-local" class="button register">Register</a>
-        <a href="#">Forgot password?</a>
+        <input type="text" placeholder="Username or email" required aria-label="Username or email">
+        <input type="password" placeholder="Password" required aria-label="Password">
+        <button type="submit" class="button">Login</button>
+        <a href="/signup-local" class="button register">Not Signed In? Sign Up Here</a>
+        <a href="#" class="forgot-password">Forgot password?</a>
       </form>
       <label for="local-checkbox" class="back-button">Go Back</label>
     </div>
 
-
-
     <div class="login-window" id="tourist-login">
       <h3>Login as Tourist</h3>
       <form action="/login" method="POST">
-        <input type="email" placeholder="Enter Email" id="email" name="email" required>
-        <input type="password" placeholder="Password" id="password" name="password" required>
-        <button type="submit">Login</button>
-        
-        <!-- Update the register button to be a link to the sign-up page -->
-        <a href="/signup" class="button register">Register</a>
-        <a href="#">Forgot password?</a>
+        <input type="email" placeholder="Enter Email" id="email" name="email" required aria-label="Email">
+        <input type="password" placeholder="Password" id="password" name="password" required aria-label="Password">
+        <button type="submit" class="button">Login</button>
+        <a href="/signup" class="button register">  Not Signed In? Sign Up Here</a>
+        <a href="#" class="forgot-password">Forgot password?</a>
       </form>
-    
       <label for="tourist-checkbox" class="back-button">Go Back</label>
     </div>
-    
   </main>
-</body>
-<footer>
-  <p>&copy; 2024 Experience Khwopa. All rights reserved. | Privacy Policy | Terms of Service</p>
+  <footer>
+    <div class="footer-content">
+        <div class="footer-sections">
+            <div class="about-section" id="about">
+                <h3>About Us</h3>
+                <p>Experience Khwopa is your gateway to exploring the rich cultural heritage of Bhaktapur. We are dedicated to showcasing the authentic experiences, traditional crafts, and historical landmarks of this ancient city. Our mission is to connect visitors with local artisans, cultural sites, and unique experiences that make Khwopa (Bhaktapur) truly special.</p>
+            </div>
+            <div class="contact-section" id="contact">
+                <h3>Contact Us</h3>
+                <p>Email: info@experiencekhwopa.com</p>
+                <p>Phone: +977 1234567890</p>
+                <p>Address: Durbar Square, Bhaktapur</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2024 Experience Khwopa</div>
+    </div>
 </footer>
+</body>
 </html>

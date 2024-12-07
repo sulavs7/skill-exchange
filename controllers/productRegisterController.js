@@ -2,9 +2,9 @@
 const User = require('../models/userModel');
 exports.registerProduct = async (req, res) => {
     try {
-        const { email, category, description } = req.body;
+        const { email, category, description, name, price, contact } = req.body;
 
-        console.log('Starting update for:', { email, category });
+        console.log('Starting update for:', { email, category, name, description, price, contact });
 
         // First find the user
         const user = await User.findOne({ email: email });
@@ -28,7 +28,10 @@ exports.registerProduct = async (req, res) => {
                 {
                     $set: {
                         category: category,
-                        // description: description,
+                        description: description,
+                        name: name,
+                        price: price,
+                        contact: contact,
                         role: 'local'  // ensure role is set
                     }
                 },

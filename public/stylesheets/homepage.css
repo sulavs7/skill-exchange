@@ -2,152 +2,280 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins";
 }
 
-/* Navbar Styles */
-.navbar {
+body {
+  background-color: #fff5eb;
+  margin: 0;
+}
+
+/* Header */
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
-  background-color: #333;
+  background: linear-gradient(135deg, #2d2727 0%, #1a1616 100%);
   color: white;
+  padding: 20px 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.nav-links {
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ffa010, #ff7e00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 30px;
+  align-items: center;
 }
 
-.nav-links a {
-  color: white;
+.text-link {
+  color: #ffffff;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.text-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ffa010;
+  transition: width 0.3s;
+}
+
+.text-link:hover::after {
+  width: 100%;
 }
 
 .auth-buttons {
-  display: flex;
-  gap: 1rem;
+  background: linear-gradient(45deg, #ffa010, #ff7e00);
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.auth-buttons button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.auth-buttons:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 160, 16, 0.3);
 }
 
 .login {
-  background-color: transparent;
   color: white;
-  border: 1px solid white !important;
+  text-decoration: none;
+  font-weight: 500;
 }
-
-.signup {
-  background-color: #4caf50;
-  color: white;
-}
-
-/* Slider Styles */
-.slider {
+/* Photo Slider Section */
+.photo-section {
   position: relative;
-  height: 400px;
-  width: auto;
+  width: 100%;
+  height: 80vh; /* maintains your 80vh height */
   overflow: hidden;
+  background-color: #000; /* adds black background to help with different image sizes */
 }
 
-.slide {
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider img {
   position: absolute;
   width: 100%;
   height: 100%;
+  object-fit: cover; /* maintains aspect ratio while filling container */
+  object-position: center; /* centers the image */
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  display: none; /* hidden by default */
 }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.slide.active {
+.slider img.active {
   opacity: 1;
+  display: block;
 }
-
-/* Products Styles */
-.products {
-  padding: 2rem 5%;
-}
-
-.products h2 {
-  margin-bottom: 1.5rem;
-}
-
-.product-list {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-}
-
-.product-card {
-  min-width: 250px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-.product-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.product-card h3 {
-  margin: 0.5rem 0;
-}
-
-.product-card p {
-  color: #666;
-}
-
-.price {
-  font-weight: bold;
-  color: #4caf50;
-  margin-top: 0.5rem;
-}
-
-/* Footer Styles */
-footer {
-  background-color: #333;
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
-  padding: 2rem 5%;
-  margin-top: 2rem;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.arrow:hover {
+  background-color: rgba(255, 160, 16, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.left-arrow {
+  left: 20px;
+}
+.right-arrow {
+  right: 20px;
+}
+
+/* Hero Text */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 10;
+  width: 80%;
+  background: rgb(0 0 0 / 32%);
+  padding: 30px;
+  border-radius: 15px;
+  /* backdrop-filter: blur(5px); */
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text p {
+  font-size: 24px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.social-links {
+  margin-bottom: 15px;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffa010;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .hero-text p {
+    font-size: 18px;
+  }
+}
+footer {
+  background-color: #333333;
+  padding: 3rem 0;
+  font-family: "Poppins", sans-serif;
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.footer-section h3 {
+.footer-sections {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.about-section,
+.contact-section {
+  flex: 1;
+}
+
+.about-section p {
+  color: #d1d1d1;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
-.footer-section ul {
-  list-style: none;
-}
-
-.footer-section ul li {
+.contact-section p {
+  color: #d1d1d1;
   margin-bottom: 0.5rem;
 }
 
-.footer-bottom {
+.social-links {
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  color: #d1d1d1;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+}
+
+.copyright {
   text-align: center;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #555;
+  color: #888888;
+  padding-top: 2rem;
+  border-top: 1px solid #444444;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-sections {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }

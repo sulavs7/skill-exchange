@@ -60,6 +60,13 @@
 <body>
     <header>
         <div class="logo">Experience Khwopa</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="text-link">Home</a></li>
+                <li><a href="#about" class="text-link">About Us</a></li>
+                <li><a href="#contactUs" class="text-link">Contact Us</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -67,19 +74,19 @@
         <!-- <form id="registrationForm" action="/product-register" method="POST" > -->
             <!-- Change the form to remove the method -->
 <form id="registrationForm" onsubmit="event.preventDefault(); productRecorded();">
-            <!-- Full Name -->
+            
             <label for="fullname">Full Name:</label>
-            <input type="text" id="fullname" name="fullname" required>
+            <input type="text" id="name" name="name" required>
 
-            <!-- Contact Details -->
+            
             <label for="contact">Contact Number:</label>
             <input type="tel" id="contact" name="contact" placeholder="Enter valid contact number" required>
 
-            <!-- Address -->
+           
             <label for="address">Address:</label>
             <input type="text" id="address" name="address" required>
 
-            <!-- Gender -->
+            
             <label for="gender">Gender:</label>
             <select id="gender" name="gender" required>
                 <option value="">--Select Gender--</option>
@@ -88,12 +95,12 @@
                 <option value="other">Other</option>
             </select>
 
-            <!-- Email -->
+          
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" placeholder="Enter your Email address" required>
             
             <label for="category">Category:</label>
-<!-- Main category select -->
+
 <select id="category" name="category" required onchange="showNewCategoryInput()">
     <option value="">--Select Category--</option>
     <option value="addYourOwn">Add Your Own</option>
@@ -103,18 +110,18 @@
     <option value="music">Music and Dance</option>
 </select>
 
-<!-- New category input -->
+
 <div id="newCategoryContainer">
     <label for="newCategory">Enter New Category:</label>
     <input type="text" id="newCategory" name="newCategory" placeholder="Enter your new category">
 </div>
 <label for="text">Price per Session</label>
 <input type="text" id="price" name="price" placeholder="Enter Price per Session" required>
-            <!-- Description -->
+            
             <label for="description">Description:</label>
             <textarea id="description" name="description" rows="5" placeholder="Describe your skill or product..." required></textarea>
             
-            <!-- Terms and Conditions -->
+            
             <div class="terms-container">
                 <input type="checkbox" id="terms" name="terms">
                 <label for="terms">
@@ -123,9 +130,12 @@
                 </label>
             </div>
 
-            <!-- Submit Button -->
+            
             <button type="button" onclick="productRecorded()">Register</button>
         </form>
+
+        
+          
     </main>
 
     <!-- Popup Modal -->
@@ -136,7 +146,29 @@
     </div>
 
     <footer>
-        <div>&copy; 2024 Experience Khwopa</div>
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="about-section" id="about">
+                    <h3>About Us</h3>
+                    <p>Experience Khwopa is your gateway to exploring the rich cultural heritage of Bhaktapur. We are dedicated to showcasing the authentic experiences, traditional crafts, and historical landmarks of this ancient city. Our mission is to connect visitors with local artisans, cultural sites, and unique experiences that make Khwopa (Bhaktapur) truly special.</p>
+                </div>
+                <div class="contact-section" id="contactUs">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@experiencekhwopa.com</p>
+                    <p>Phone: +977 1234567890</p>
+                    <p>Address: Durbar Square, Bhaktapur</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com" target="_blank">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2024 Experience Khwopa</div>
+        </div>
     </footer>
 
     <script>
@@ -156,6 +188,11 @@ function productRecorded() {
     // Get values directly
     const email = document.getElementById('email').value;
     let category = document.getElementById('category').value;
+    let name = document.getElementById('name').value;
+    let description = document.getElementById('description').value;
+    let price= document.getElementById('price').value;
+    let contact= document.getElementById('contact').value;
+     
     
     // If it's a custom category, get that value instead
     if (category === 'addYourOwn') {
@@ -166,6 +203,10 @@ function productRecorded() {
     const data = {
         email: email,
         category: category,
+        name: name,
+        description:description,
+        price: price,
+        contact:contact
     };
 
     console.log('Sending to server:', data); // Debug log
@@ -194,6 +235,8 @@ function productRecorded() {
         overlay.style.display = 'block';
     });
 }
+
+
         function closePopup() {
             // Hide the popup and overlay
             const popup = document.getElementById('popup');

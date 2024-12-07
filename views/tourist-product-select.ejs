@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,44 +11,64 @@
     <div class="logo">Experience Khwopa</div>
     <nav>
         <ul>
-            <li><a href="#home" class="text-link">Home</a></li>
+            <li><a href="/" class="text-link">Home</a></li>
             <li><a href="#about" class="text-link">About Us</a></li>
             <li><a href="#contact" class="text-link">Contact Us</a></li>
         </ul>
-        
     </nav>
 </header>
 <body>
     <main>
-    <div class="items">
-        <div class="item">
-            <img src="https://www.thirdrockadventures.com/assets-back/images/trip/pottery-3.jpgPsZ.jpg" alt="Pottery Workshop">
-            <h2>Pottery Workshop</h2>
-            <p>Description: Learn the art of pottery making with skilled artisans.</p>
-            <p>Price: $25</p>
-            <p>Rating: ⭐⭐⭐⭐ (4.8)</p>
-            <video controls>
-                <source src="pottery_video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="reviews">
-                <h3>Reviews</h3>
-                <p>Alex: "A calming and enriching experience. Highly recommend."</p>
-                <p>Maria: "Amazing workshop, and I got to take my own creation home!"</p>
-            </div>
-            <button>Book Now</button>
+        <div class="items">
+            <% potteryUsers.forEach(user => { %>
+                <div class="item">
+                    <img src="https://www.thirdrockadventures.com/assets-back/images/trip/pottery-3.jpgPsZ.jpg" alt="Pottery Workshop">
+                    <h2><%= user.name %></h2>
+                    <p>Description: <%= user.description %></p>
+                    <p>Price: $<%= user.price %></p>
+                    <p>Contact: <%= user.contact %></p>
+                    <video controls>
+                        <source src="pottery_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <button onclick="proceedBooking('<%= user._id %>')">Book Now</button>
+                </div>
+            <% }); %>
         </div>
-        
-    </div>
     </main>
     <footer>
         <div class="footer-content">
-            <div class="social-links">
-                <a href="https://www.instagram.com" target="_blank">Instagram</a> | 
-                <a href="https://www.facebook.com" target="_blank">Facebook</a>
+            <div class="footer-sections">
+                <div class="about-section" id="about">
+                    <h3>About Us</h3>
+                    <p>Experience Khwopa is your gateway to exploring the rich cultural heritage of Bhaktapur. We are dedicated to showcasing the authentic experiences, traditional crafts, and historical landmarks of this ancient city. Our mission is to connect visitors with local artisans, cultural sites, and unique experiences that make Khwopa (Bhaktapur) truly special.</p>
+                </div>
+                <div class="contact-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@experiencekhwopa.com</p>
+                    <p>Phone: +977 1234567890</p>
+                    <p>Address: Durbar Square, Bhaktapur</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com" target="_blank">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div>&copy; 2024 Experience Khwopa</div>
+            <div class="copyright">&copy; 2024 Experience Khwopa</div>
         </div>
     </footer>
+    <script>
+        function productRegistration() {
+            window.location.href = '/booking';
+        }
+        function proceedBooking(userId) {
+    
+    window.location.href = `/booking?userId=${userId}`;
+}
+    </script>
 </body>
 </html>

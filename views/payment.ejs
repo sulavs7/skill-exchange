@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="stylesheets/booking.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Experience Khwopa</div>
+        <nav>
+            <ul>
+                <li><a href="/" class="text-link">Home</a></li>
+                <li><a href="#about" class="text-link">About Us</a></li>
+                <li><a href="#contact" class="text-link">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div style="height: 70px;"></div>
+        <h1>Payment Procedure</h1>
+        <form id="paymentForm" class="payment-form">
+            <!-- Payment Process -->
+            <div class="form-group">
+                <label for="payment-method">Select Payment Method:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="esewa">eSewa</option>
+                    <option value="cash">Cash on Arrival</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Confirm Booking</button>
+        </form>
+    </main>
+
+    <!-- Pop-up and Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h2>Booking Successful!</h2>
+        <p>Thank you for choosing Experience Khwopa. Your booking has been confirmed!</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="about-section" id="about">
+                    <h3>About Us</h3>
+                    <p>Experience Khwopa is your gateway to exploring the rich cultural heritage of Bhaktapur. We are dedicated to showcasing the authentic experiences, traditional crafts, and historical landmarks of this ancient city. Our mission is to connect visitors with local artisans, cultural sites, and unique experiences that make Khwopa (Bhaktapur) truly special.</p>
+                </div>
+                <div class="contact-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@experiencekhwopa.com</p>
+                    <p>Phone: +977 1234567890</p>
+                    <p>Address: Durbar Square, Bhaktapur</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+                        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2024 Experience Khwopa</div>
+        </div>
+    </footer>
+
+    <script>
+        // Get references to DOM elements
+        const paymentForm = document.getElementById('paymentForm');
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('overlay');
+
+        // Handle form submission
+        paymentForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Display the popup and overlay
+            popup.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        // Function to close the popup
+        function closePopup() {
+            popup.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
